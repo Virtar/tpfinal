@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}WELLVIP Alquiler de Salones y casas para Eventos {% endblock %}</title>
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- link a animate css -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    {% load static %}
+    <link href="{% static 'core/styles/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/styles/style-gallery.css' %}">
+    <link rel="shortcut icon" href="{% static 'core/favicon.ico' %}" type="image/x-icon">
+    
+</head>
+<body>
+    <!-- codigo que se repite --> 
+    <header>
+
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'core/images/logo.png' %}" id="logo" width="120" height="120" class="d-inline-block" alt="logo">
+                  </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav text-white fw-bold">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'cliente' %}"><i class="fa-solid fa-user"></i> CLIENTE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'nosotros' %}"><i class="fa-solid fa-users"></i> NOSOTROS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'infoutil' %}"><i class="fa-solid fa-newspaper"></i> INFO UTIL</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contacto' %}"><i class="fa-solid fa-envelope"></i> CONTACTO</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main>
+        <!-- codigo que no se repite --> 
+        {% block content %} 
+        
+        {% endblock %}
+    </main>
+    <footer class="footer">
+        <ul class="social-icon">
+          <li class="icon-elem">
+            <a href="https://www.youtube.com/" class="icon">
+              <ion-icon name="logo-youtube"></ion-icon></a>
+          </li>
+          <li class="icon-elem">
+            <a href="https://www.instagram.com/" class="icon">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li class="icon-elem">
+            <a href="https://www.web.whatsapp.com/" class="icon">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a>
+          </li>
+          <li class="icon-elem">
+            <a href="https://www.facebook.com" class="icon">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li class="icon-elem">
+            <a href="mailto:info@wellvip.com" class="icon">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu">
+          <li class="menu-elem">
+            <a href="{% url 'home' %}" class="menu-icon"> Inicio </a>
+          </li>
+          <li class="menu-elem">
+            <a href="{% url 'cliente' %}" class="menu-icon"> Cliente </a>
+          </li>
+          <li class="menu-elem">
+            <a href="{% url 'infoutil' %}" class="menu-icon"> Info útil </a>
+          </li>
+          <li class="menu-elem">
+            <a href="{% url 'contacto' %}" class="menu-icon"> Contacto </a>
+          </li>
+          <li class="menu-elem">
+            <a href="{% url 'nosotros' %}" class="menu-icon"> Nosotros </a>
+          </li>
+        </ul>
+        <p><small>Contactar con WELLVIP +54 (011) 5555 5555 <br>Toda la información y medidas provistas son
+            aproximadas.<br>Las tarifas expresadas refieren a la última información recabada. Fotografías no vinculantes ni
+            contractuales.</small></p>
+        <p><small>Derecho de autor: GRUPO22 @2024 Argentina</small></p>
+      </footer>
+
+      <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="https://kit.fontawesome.com/03db7b7551.js" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script src="{% static 'core/js/bd.js' %}"></script>
+      {% if request.path == '/' %}
+    <script src="{% static 'core/js/index.js' %}"></script>
+{% elif request.path == '/cliente' %}
+    <script src="{% static 'core/js/cliente.js' %}"></script>
+{% elif request.path == '/contacto' %}
+    <script src="{% static 'core/js/contacto.js' %}"></script>
+
+    
+
+   
+{% endif %}
+<script src="{% static 'core/js/detalle.js' %}"></script>
+<script src="{% static 'core/js/infoUtil.js' %}"></script>
+</body>
+</html>

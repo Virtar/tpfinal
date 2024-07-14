@@ -1,0 +1,40 @@
+{% extends "core/base.html" %} 
+
+{% load static %}   
+
+
+{% block content %} 
+
+
+
+<main>
+    <ul class="menuTexto">
+      <li class="animate__animated indexAnimacion centrado">Tu evento comienza acá. Los mejores salones de CABA podés
+        encontrarlos en WELLVIP.
+      </li>
+    </ul>
+    <div class="cards-df" id="seccionPublicaciones">
+      {% for publicacion in publicaciones %}
+      <article class="card-df">
+        <a href="#">
+            <figure>
+      
+                <img class="d-block w-100" id="imagen1" src="{{publicacion.imagen1.url}}" onclick=hizoClick(${contador}); alt="Salón.">
+      
+            </figure>
+        </a>
+      
+        <div class="card-df-content">
+            <h3 id="direccion1"></h3>
+            <p id="presentacion1" >{{publicacion.presentacion}}</p>
+            {% comment %} <a href="pages/detalle.html?id=${publicacion.id}">leer mas</a> {% endcomment %}
+            <a href= "{% url 'detalle' id=publicacion.id %}">leer mas </a>
+        </div>
+      </article>
+      
+      {% endfor %}
+    </div>
+
+  </main>
+{% endblock %}
+    
